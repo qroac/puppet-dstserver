@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: dstserver
+  
+    &mdash; Documentation by YARD 0.9.24
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "puppet_classes::dstserver";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (d)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">dstserver</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Puppet Class: dstserver</h1>
+<div class="box_info">
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/init.pp
+    </dd>
+  </dl>
+</div>
+
+  <h2>Summary</h2>
+  Install, configure and run DST server instances
+
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+  </div>
+</div>
+
+
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>with configuration data from hiera</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='id identifier rubyid_include'>include</span> <span class='id identifier rubyid_dstserver'>dstserver</span></code></pre>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>with inline configuration</p>
+</div></p>
+      
+      <pre class="example code"><code>class { &#39;dstserver&#39;:
+  instances =&gt; {
+    my-dst-server =&gt; {
+      servername =&gt; &#39;My First Server&#39;,
+      token      =&gt; &#39;token-from-klei&#39;,
+    },
+    my-second-server =&gt; {
+      servername =&gt; &#39;My Second Server&#39;,
+      token      =&gt; &#39;another-token-from-klei&#39;,
+    },
+  }
+}</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>user</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Username for the dstserver system user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>homedir</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Home directory for the system user and install location for all DST related
+data</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>instances</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Instances of DST servers to be configured and started. Each key is used as
+resourcename for one instance, the values refer to the parameters for
+dstserver::instance (except path).</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ensure</span>
+      
+      
+        <span class='type'>(<tt>Enum['present', 'absent']</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>present</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Ensure DST is installed and running, or removed from the node</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>token</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Klei server instance token. Use only for demo purpose with the default demo
+instance because it overrides the token value for all instances. In
+production, set the token along with the configuration for each instance.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 33</span>
+
+class dstserver(
+  String $user,
+  String $homedir,
+  Hash $instances,
+  Enum[&#39;present&#39;, &#39;absent&#39;] $ensure = present,
+  Optional[String] $token,
+) {
+
+  File{
+    owner =&gt; $user,
+    group =&gt; $user,
+  }
+  $bin_dir = &quot;${homedir}/bin&quot;
+  $install_dir = &quot;${homedir}/app&quot;
+  $profile_dir = &quot;${homedir}/.klei&quot;
+
+  # Get a list of names of defined master and cave shards
+  $masters = keys($instances)
+  $caves = keys($instances.filter |$name, $data| { $data[&#39;caves&#39;] == true })
+
+  class {&#39;dstserver::setup&#39;:
+    ensure  =&gt; $ensure,
+    user    =&gt; $user,
+    homedir =&gt; $homedir,
+    masters =&gt; $masters,
+    caves   =&gt; $caves,
+  }
+
+  # place serverglobal mod setup script
+  $used_mods = $instances.map |$name, $data| { if $data[&#39;mods&#39;] { $data[&#39;mods&#39;].keys } else {[]} }
+  file{&quot;${install_dir}/mods/dedicated_server_mods_setup.lua&quot;:
+    ensure  =&gt; present,
+    content =&gt; epp(&#39;dstserver/dedicated_server_mods_setup.lua&#39;, { mods =&gt; $used_mods.flatten.unique }),
+    require =&gt; Exec[&#39;install-dst&#39;],
+  }
+
+  # Generate dstserver instances
+  $instances.each |$name, $data| {
+    $server_dir = &quot;${profile_dir}/DoNotStarveTogether/${name}&quot;
+    dstserver::instance{$name:
+      require =&gt; File[&#39;dst-serverprofiles&#39;],
+      path    =&gt; $server_dir,
+      *       =&gt; $data + {
+        token =&gt; pick($token, $data[&#39;token&#39;])
+      },
+    }
+  }
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>

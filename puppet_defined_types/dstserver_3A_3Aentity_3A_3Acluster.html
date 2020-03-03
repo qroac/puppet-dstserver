@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Defined Type: dstserver::entity::cluster
+  
+    &mdash; Documentation by YARD 0.9.24
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "puppet_defined_types::dstserver::entity::cluster";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_defined_type_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (d)</a> &raquo;
+    <span class='title'><span class='object_link'>Defined Types</span></span>
+     &raquo; 
+    <span class="title">dstserver::entity::cluster</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Defined Type: dstserver::entity::cluster</h1>
+<div class="box_info">
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/entity/cluster.pp
+    </dd>
+  </dl>
+</div>
+
+  <h2>Summary</h2>
+  Configure a DST server cluster that can run several DST server shards
+
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+  </div>
+</div>
+
+
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>autosave</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable or disable automatic saving after each night</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>caves</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Configure and run a cave shard in addition to the overworld shard</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>clusterkey</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;dst&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Key to authenticate the cluser nodes to each other</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>console</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable or disable the remote server console</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>description</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Server Description in the public server list</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>intention</span>
+      
+      
+        <span class='type'>(<tt>Enum['social', 'cooperative', 'competetive', 'madness']</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;social&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Your play style intention for this instance</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>masterport</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>11031</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Port of the master listening for shard connections</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>mode</span>
+      
+      
+        <span class='type'>(<tt>Enum['survival', 'wilderness', 'endless']</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;survival&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Server map mode</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>password</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Join password for the server</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>path</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Absolute path this instance profile will be configured at</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>pause</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Autmatically pause the game when no players are connected to the server</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>players</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>5</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Maximum player slots for this instance</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>pvp</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>false</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable PvP on this instance</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>servername</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Servername in the public server list, defaults to the key in the instances
+config hash</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Klei dedicated server token for this instance, obtained in your account
+management on Klei&#39;s website</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>vote_kick</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>true</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Allow players to vote for kicks</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ensure</span>
+      
+      
+        <span class='type'>(<tt>Enum[present, absent]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>present</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/entity/cluster.pp', line 38</span>
+
+define dstserver::entity::cluster (
+  String $path,
+  String $servername,
+  String $token,
+
+  Boolean $autosave = true,
+  Boolean $caves = false,
+  String $clusterkey = &#39;dst&#39;,
+  Boolean $console = true,
+  String $description = &#39;&#39;,
+  Enum[present, absent] $ensure = present,
+  Enum[&#39;social&#39;, &#39;cooperative&#39;, &#39;competetive&#39;, &#39;madness&#39;] $intention = &#39;social&#39;,
+  Integer $masterport = 11031,
+  Enum[&#39;survival&#39;, &#39;wilderness&#39;, &#39;endless&#39;] $mode = &#39;survival&#39;,
+  String $password = &#39;&#39;,
+  Boolean $pause = true,
+  Integer $players = 5,
+  Boolean $pvp = false,
+  Boolean $vote_kick = true,
+) {
+  file{&quot;${path}/cluster_token.txt&quot;:
+    ensure  =&gt; $ensure,
+    content =&gt; $token,
+    mode    =&gt; &#39;0400&#39;,
+    require =&gt; File[$path],
+  }
+  file{&quot;${path}/cluster.ini&quot;:
+    ensure  =&gt; $ensure,
+    content =&gt; epp(&#39;dstserver/cluster.ini&#39;, {
+      mode        =&gt; $mode,
+      players     =&gt; $players,
+      pvp         =&gt; $pvp,
+      pause       =&gt; $pause,
+      name        =&gt; $servername,
+      description =&gt; $description,
+      password    =&gt; $password,
+      intention   =&gt; $intention,
+      autosave    =&gt; $autosave,
+      vote_kick   =&gt; $vote_kick,
+      console     =&gt; $console,
+      masterport  =&gt; $masterport,
+      clusterkey  =&gt; $clusterkey,
+    }),
+    mode    =&gt; &#39;0400&#39;,
+    require =&gt; File[$path],
+  }
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>

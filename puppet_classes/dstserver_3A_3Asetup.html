@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: dstserver::setup
+  
+    &mdash; Documentation by YARD 0.9.24
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "puppet_classes::dstserver::setup";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (d)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">dstserver::setup</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Puppet Class: dstserver::setup</h1>
+<div class="box_info">
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/setup.pp
+    </dd>
+  </dl>
+</div>
+
+  <h2>Summary</h2>
+  Create the dstserver system user and required directories in its home location.
+Ensure, SteamCMD is available, place install and update scripts and install DST via SteamCMD.
+Place required systemd service units in the system folder.
+
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+  </div>
+</div>
+
+
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>ensure</span>
+      
+      
+        <span class='type'>(<tt>Enum['present', 'absent']</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Ensure, DST is installed and configured or remove the system service
+scripts</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>user</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Username for the dstserver system user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>homedir</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Home directory for the system user and install location for all DST related
+data</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>app_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>ID of the DST Server App in Steam</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>masters</span>
+      
+      
+        <span class='type'>(<tt>Array[String]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>List of DST master shards to restart with systemctl during update</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>caves</span>
+      
+      
+        <span class='type'>(<tt>Array[String]</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>List of DST cave shards to restart with systemctl during update</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>bin_dir</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;${homedir}/bin&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Directory to store required scripts in</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>install_dir</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;${homedir}/app&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Directory to install DST into</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>profile_dir</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&quot;${homedir}/.klei&quot;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Required location of the Klei profile directory</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/setup.pp', line 26</span>
+
+class dstserver::setup (
+  Enum[&#39;present&#39;, &#39;absent&#39;] $ensure,
+  String $user,
+  String $homedir,
+  Integer $app_id,
+  Array[String] $masters,
+  Array[String] $caves,
+  String $bin_dir = &quot;${homedir}/bin&quot;,
+  String $install_dir = &quot;${homedir}/app&quot;,
+  String $profile_dir = &quot;${homedir}/.klei&quot;
+) {
+  # DSTServer requires steamcmd to be installed
+  class { &#39;steamcmd&#39;: }
+
+  File{
+    owner =&gt; $user,
+    group =&gt; $user,
+  }
+
+  # create the system user for dst servers
+  # will be removed if dstserver is ensured to be absent
+  user{$user:
+    ensure     =&gt; $ensure,
+    comment    =&gt; &#39;System User for Dont Starve Togehter Gameservers&#39;,
+    home       =&gt; $homedir,
+    managehome =&gt; true,
+    password   =&gt; &#39;!!&#39;,
+    shell      =&gt; &#39;/bin/bash&#39;,
+    system     =&gt; true,
+  }
+
+  if $ensure == &#39;present&#39; {
+    file{$bin_dir:
+      ensure  =&gt; directory,
+      require =&gt; User[$user],
+    }
+    # Install app from steam
+    file{&quot;${bin_dir}/install-dst.sh&quot;:
+      ensure  =&gt; present,
+      content =&gt; epp(&#39;dstserver/install.sh&#39;, {
+        install_dir =&gt; $install_dir,
+        app_id      =&gt; $app_id,
+      }),
+      mode    =&gt; &#39;0500&#39;,
+      require =&gt; File[$bin_dir],
+    }
+    exec{&#39;install-dst&#39;:
+      command =&gt; &quot;${bin_dir}/install-dst.sh&quot;,
+      user    =&gt; $user,
+      creates =&gt; &quot;${install_dir}/version.txt&quot;,
+      require =&gt; [
+        Class[&#39;steamcmd&#39;],
+        File[&quot;${bin_dir}/install-dst.sh&quot;],
+        ],
+    }
+    # Place app update script
+
+    file{&quot;${bin_dir}/update-dst.sh&quot;:
+      ensure  =&gt; present,
+      mode    =&gt; &#39;0500&#39;,
+      content =&gt; epp(&#39;dstserver/update.sh&#39;, {
+        master =&gt; $masters,
+        caves  =&gt; $caves,
+      }),
+      require =&gt; File[$bin_dir],
+    }
+
+    # create required folders
+    file{$profile_dir:
+      ensure  =&gt; directory,
+      require =&gt; User[&#39;server-dst&#39;],
+    }
+    file{&#39;dst-serverprofiles&#39;:
+      ensure  =&gt; directory,
+      path    =&gt; &quot;${profile_dir}/DoNotStarveTogether&quot;,
+      require =&gt; File[$profile_dir],
+    }
+  }
+
+  # Install or remove service script
+  file{&#39;service-dst-master&#39;:
+    ensure  =&gt; $ensure,
+    path    =&gt; &#39;/etc/systemd/system/dst-master@.service&#39;,
+    content =&gt; epp(&#39;dstserver/master.service&#39;, {
+      install_dir =&gt; $install_dir,
+      home_dir    =&gt; $homedir,
+    }),
+  }
+  file{&#39;service-dst-caves&#39;:
+    ensure  =&gt; $ensure,
+    path    =&gt; &#39;/etc/systemd/system/dst-caves@.service&#39;,
+    content =&gt; epp(&#39;dstserver/cave.service&#39;, {
+      install_dir =&gt; $install_dir,
+      home_dir    =&gt; $homedir,
+    }),
+  }
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>
