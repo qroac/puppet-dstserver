@@ -1,0 +1,20 @@
+return {
+<%- $mods.each | $id, $mod | { -%>
+  <%- if $mod =~ Boolean { -%>
+  ["workshop-<%= $id %>"] => { enabled = <%= $mod %> },
+  <%- } elsif $mod =~ Hash { -%>
+  ["workshop-<%= $id %>"] => {
+    <%- if $mod['enabled'] { -%>
+    enabled = <%= $mod %>,
+    <%- } else {-%>
+    enabled = true,
+    <%- } -%>
+    <%- if $mod['config'] { -%>
+    configuration_options: {
+      <%= $mod['config'] %>
+    }
+    <%- } -%>
+  },
+  <%- } -%>
+<%- } -%>
+}

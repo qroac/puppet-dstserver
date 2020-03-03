@@ -1,0 +1,17 @@
+#!/bin/bash
+echo "Stop all DST servers \n"
+systemctl stop 'dst-master@*'
+systemctl stop 'dst-caves@*'
+
+echo "Perform App Update via SteamCMD\n"
+sudo -u server-dst /srv/dst/bin/install-dst.sh
+
+echo "Start Master Shards\n"
+<%- $master.each | $name | { -%>
+systemctl start dst-master@<%= $name %>
+<%- } -%>
+
+echo "Start Cave Shards\n"
+<%- $caves.each | $name | { -%>
+systemctl start dst-caves@<%= $name %>
+<%- } -%>

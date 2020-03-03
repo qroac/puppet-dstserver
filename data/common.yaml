@@ -1,0 +1,122 @@
+---
+dstserver::user: server-dst
+dstserver::homedir: /srv/dst
+dstserver::ensure: present
+dstserver::setup::app_id: 343050
+dstserver::instances:
+    default: 
+        servername: My DST Server
+        description: Are you able to survive the first winter?
+        mode: survival
+        password:
+        intention: cooperative
+        autosave: true
+        vote_kick: true
+        # your-server-token-from-klei-goes-here
+        token: 
+        players: 5
+        pvp: false
+        caves: true
+        pause: true
+        console: true
+        # Calculate 7 ports from here: 1 cluster, 3 master, 3 cave
+        startport: 13010
+        clusterkey: dst
+        worldgenoverrides:
+            master:
+                enabled: true
+                preset: SURVIVAL_TOGETHER
+                overrides:
+                    world_size: huge
+
+        mods:
+            # Minimap HUD
+            345692228: true
+            # Combined Status
+            376333686: true
+            # Ultimate Starting Item Tuner
+            1627929571:
+                enabled: true
+                config: |
+                    ShouldOverrideMod=false, 
+                    ShouldOverrideVanila=false,
+                    Data = {
+                        ["AllPlayers"] = {
+                            ["respawnnight"] = { 
+                                "torch"
+                            },
+                            [""] = {
+                                -- "axe", "pickaxe", "bedroll_straw", "amulet", "backpack"
+                            }
+                        },
+                        ["admin"] = {},
+                        ["wilson"] = {
+                            [""] = {
+                                "razor"
+                            },
+                        },
+                        ["willow"] = {
+                            ["springsummerwinter"] = {
+                                "log", 5
+                            },
+                            ["summer"] = {
+                                "nitre", 3
+                            },
+                        },
+                        ["wx78"] = {
+                            ["spring"] = {
+                                "gears", 2, "*rainhat", "moisture", 30
+                            },
+                        },
+                        ["wolfgang"] = {
+                            ["springautumn"] = {
+                                "meatballs"
+                            },
+                            ["summer"] = {
+                                "watermelonicle", 3
+                            },
+                            ["winter"] = {
+                                "meat_dried", 2
+                            },
+                        },
+                        ["waxwell"] = {
+                            [""] = {
+                                "nightmarefuel", 2, "sanity", -60
+                            },
+                        },
+                        ["wendy"] = {
+                            [""] = {
+                                "rabbit"
+                            },
+                        },
+                        ["winona"] = {
+                            [""] = {
+                                "sewing_tape"
+                            },
+                        },
+                        ["woodie"] = {
+                            [""] = {
+                                "livinglog", 2
+                            },
+                        },
+                        ["wes"] = {
+                            [""] = {
+                                "waterballoon", 2
+                            },
+                        },
+                        ["wickerbottom"] = {
+                            [""] = {
+                                "seeds", 3
+                            },
+                        },
+                        ["webber"] = {
+                            [""] = {
+                                "monsterlasagna", 2
+                            },
+                        },
+                        ["wathgrithr"] = {
+                            [""] = {
+                                "hambat"
+                            },
+                        }
+                    }

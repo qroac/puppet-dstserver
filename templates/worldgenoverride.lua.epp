@@ -1,0 +1,9 @@
+return {
+  override_enabled = <%= $enabled %>,
+  preset = "<%= $preset %>",
+  overrides = {
+<% $overrides.each  | $name, $value | { -%>
+    <%= $name %> = "<%= $value %>",
+<% } -%>
+  }
+}

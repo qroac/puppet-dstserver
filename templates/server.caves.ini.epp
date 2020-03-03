@@ -1,0 +1,14 @@
+[NETWORK]
+server_port = <%= $ports[0] %>
+
+[SHARD]
+is_master = false
+name = Caves
+# id = 1683193949
+
+[STEAM]
+master_server_port = <%= $ports[1] %>
+authentication_port = <%= $ports[2] %>
+
+[ACCOUNT]
+encode_user_path = true

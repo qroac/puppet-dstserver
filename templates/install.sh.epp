@@ -1,0 +1,2 @@
+#!/bin/bash
+/opt/steamcmd/steamcmd.sh +login anonymous +force_install_dir <%= $install_dir %> +app_update <%= $app_id %> validate +quit

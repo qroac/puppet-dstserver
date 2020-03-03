@@ -1,0 +1,26 @@
+[GAMEPLAY]
+game_mode = <%= $mode %>
+max_players = <%= $players %>
+pvp = <%= $pvp %>
+pause_when_empty = <%= $pause %>
+
+
+[NETWORK]
+cluster_name = <%= $name %>
+cluster_description = <%= $description %>
+cluster_password = <%= $password %>
+cluster_intention = <%= $intention %>
+autosaver_enabled = <%= $autosave %>
+enable_vote_kick = <%= $vote_kick %>
+
+
+[MISC]
+console_enabled = <%= $console %>
+
+
+[SHARD]
+shard_enabled = true
+bind_ip = 127.0.0.1
+master_ip = 127.0.0.1
+master_port = <%= $masterport %>
+cluster_key = <%= $clusterkey %>

@@ -1,0 +1,12 @@
+[NETWORK]
+server_port = <%= $ports[0] %>
+
+[SHARD]
+is_master = true
+
+[STEAM]
+master_server_port = <%= $ports[1] %>
+authentication_port = <%= $ports[2] %>
+
+[ACCOUNT]
+encode_user_path = true

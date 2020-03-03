@@ -1,0 +1,15 @@
+[Unit]
+Description=Start a DST cave server
+
+Wants=network.target
+After=network.target
+
+[Service]
+User=server-dst
+Group=server-dst
+Environment="HOME=<%= $home_dir %>"
+WorkingDirectory=<%= $install_dir %>/bin
+ExecStart=<%= $install_dir %>/bin/dontstarve_dedicated_server_nullrenderer -console -cluster %i -shard caves
+
+[Install]
+WantedBy=multi-user.target
