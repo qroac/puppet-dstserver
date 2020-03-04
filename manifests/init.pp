@@ -37,7 +37,7 @@ class dstserver(
   String $homedir,
   Hash $instances,
   Enum['present', 'absent'] $ensure = present,
-  Optional[String] $token,
+  Optional[String] $token = undef,
 ) {
 
   File{
@@ -75,7 +75,7 @@ class dstserver(
       require => File['dst-serverprofiles'],
       path    => $server_dir,
       *       => $data + {
-        token => pick($token, $data['token'])
+        token => pick($token, $data['token'], "no token given for dstserver::instances.${name}.token")
       },
     }
   }
