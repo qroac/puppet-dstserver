@@ -55,14 +55,16 @@ define dstserver::entity::cluster (
   Boolean $pvp = false,
   Boolean $vote_kick = true,
 ) {
-  file{"${path}/cluster_token.txt":
+  file{"${name}-token-cluster":
     ensure  => $ensure,
+    path    => "${path}/cluster_token.txt",
     content => $token,
     mode    => '0400',
     require => File[$path],
   }
-  file{"${path}/cluster.ini":
+  file{"${name}-conf-cluster":
     ensure  => $ensure,
+    path    => "${path}/cluster.ini",
     content => epp('dstserver/cluster.ini', {
       mode        => $mode,
       players     => $players,

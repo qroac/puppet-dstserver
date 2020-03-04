@@ -50,16 +50,20 @@ define dstserver::entity::master(
       notify => Service["dst-master@${name}"],
     }
     service{"dst-master@${name}":
-      ensure  => running,
-      enable  => true,
-      require => File['service-dst-master']
+      ensure    => running,
+      enable    => true,
+      require   => File['service-dst-master'],
+      subscribe => [
+        File["${name}-token-cluster"],
+        File["${name}-conf-cluster"],
+      ],
     }
   } else {
     # Ensure service is removed
     service{"dst-master@${name}":
       ensure  => stopped,
       enable  => false,
-      require => File['service-dst-master']
+      require => File['service-dst-master'],
     }
   }
 }

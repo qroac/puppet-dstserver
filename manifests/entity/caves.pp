@@ -51,9 +51,13 @@ define dstserver::entity::caves(
       notify => Service["dst-caves@${name}"],
     }
     service{"dst-caves@${name}":
-      ensure  => running,
-      enable  => true,
-      require => File['service-dst-caves']
+      ensure    => running,
+      enable    => true,
+      require   => File['service-dst-caves'],
+      subscribe => [
+        File["${name}-token-cluster"],
+        File["${name}-conf-cluster"],
+      ],
     }
   } else {
     # Caves disabled for this instance
