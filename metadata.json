@@ -4,9 +4,15 @@
   "author": "Michael Fürmann",
   "summary": "Install Dont Starve Together dedicated server on nodes and manage running instances",
   "license": "MIT",
-  "source": "",
+  "source": "https://github.com/qroac/puppet-dstserver",
+  "issues_url": "https://github.com/qroac/puppet-dstserver/issues",
+  "project_page": "https://qroac.github.io/puppet-dstserver",
+  "tags": ["steam", "gameserver"],
   "dependencies": [
-
+    {
+      "name": "tamerz-steamcmd",
+      "version_requirement": ">= 0.1.2 < 1.0.0"
+    }
   ],
   "operatingsystem_support": [
     {
@@ -50,10 +56,6 @@
     {
       "name": "puppet",
       "version_requirement": ">= 4.10.0 < 7.0.0"
-    },
-    {
-      "name": "tamerz-steamcmd",
-      "version_requirement": ">= 0.1.2"
     }
   ],
   "pdk-version": "1.16.0",

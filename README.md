@@ -112,6 +112,7 @@ dstserver::instances:
 ```
 
 Instance configuration options in alphabetical order, required parameters are __bold__:
+
 | Option            | Default       | Description |
 | ------------------| --------------| ------------|
 | autosave          | `true`        | Automatically save the world after midnight |

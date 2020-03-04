@@ -53,7 +53,6 @@ define dstserver::instance(
   String $ensure = present,
   Enum['social', 'cooperative', 'competetive', 'madness'] $intention = 'social',
   Enum['survival', 'wilderness', 'endless'] $mode = 'survival',
-  Optional[Hash] $mods = undef,
   String $password = '',
   Boolean $pause = true,
   Integer $players = 5,
@@ -61,6 +60,7 @@ define dstserver::instance(
   String $servername = $name,
   Integer $startport = 11031,
   Boolean $vote_kick = true,
+  Optional[Hash] $mods = undef,
   Optional[Hash] $worldgenoverrides = undef,
 ) {
   # Path variables for later use

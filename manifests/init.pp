@@ -8,11 +8,13 @@
 # @param homedir
 #   Home directory for the system user and install location for all DST related data
 # @param instances
-#   Instances of DST servers to be configured and started. Each key is used as resourcename for one instance, the values refer to the parameters for dstserver::instance (except path).
+#   Instances of DST servers to be configured and started. Each key is used as resourcename for one instance, 
+#   the values refer to the parameters for dstserver::instance (except path).
 # @param ensure
 #   Ensure DST is installed and running, or removed from the node
 # @param token
-#   Klei server instance token. Use only for demo purpose with the default demo instance because it overrides the token value for all instances. In production, set the token along with the configuration for each instance.
+#   Klei server instance token. Use only for demo purpose with the default demo instance because it overrides 
+#   the token value for all instances. In production, set the token along with the configuration for each instance.
 #
 # @example with configuration data from hiera
 #         include dstserver
