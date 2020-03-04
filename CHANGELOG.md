@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.1.2
+
+**Bugfixes**
+
+* Fix error for instances just configured as absent and having no token
+* Fix wrong filename for modoverrides.lua shard config file
+* Fix lua syntax errors in modoverrides.lua shard config file
+
+**Features**
+
+* Restart server shards on change of instance or cluster config files
+
 ## Release 0.1.1
 
 **Bugfixes**

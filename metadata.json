@@ -1,6 +1,6 @@
 {
   "name": "qroac-dstserver",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Michael Fürmann",
   "summary": "Install Dont Starve Together dedicated server on nodes and manage running instances",
   "license": "MIT",
