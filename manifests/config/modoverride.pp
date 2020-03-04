@@ -15,7 +15,7 @@ define dstserver::config::modoverride (
   $ensure = $mods ? { undef => absent, default => present}
   file{"${name}-modoverride":
     ensure  => $ensure,
-    path    => "${path}/modoverride.lua",
+    path    => "${path}/modoverrides.lua",
     content => epp('dstserver/modoverrides.lua', {
       mods => pick($mods, []),
     })
